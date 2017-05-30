@@ -1,0 +1,178 @@
+body {font-family: "Roboto", Condensed;}
+
+#imageUploadDiv {
+    height: 288.56px;
+}
+
+#inputFormDiv {
+}
+
+#departmentSelect:hover {
+    cursor: pointer;
+}
+
+#departmentSelect {
+    border: none;
+}
+
+.w3-select option[disabled] {
+    color: graytext;
+}
+
+#imageUploadButton {
+}
+
+#previewBanner {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#circularImageButton {
+    margin-top: 10px;
+    float: left;
+    margin-left: 16px;
+}
+
+#squareImageButton {
+    margin-top: 10px;
+    float: right;
+}
+
+#plateImageLeftDiv{
+    height: 300px;
+    width: 768px;
+    margin: 0 auto;
+}
+
+#plateImageLeft {
+    max-width: 300px;
+    max-height: 300px;
+    width: 300px;
+    height: 300px;
+}
+
+#plateLeftText {
+    margin-left: 0.25in;
+}
+
+#departmentLeft {
+    margin-top: 0.22in;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 24pt;
+}
+
+#firstNameLeft {
+    font-weight: 900;
+    font-size: 48pt;
+}
+
+#lastNameLeft {
+    font-size: 30pt;
+    margin-bottom: 14px;
+    margin-top: -20px;
+    display: block;
+}
+
+#startYearLeft {
+    display: block;
+    margin-bottom: 0.22in;
+    font-size: 24pt;
+}
+
+#plateImageRightDiv {
+    height: 300px;
+    width: 768px;
+    margin: 0 auto;
+}
+
+#plateImageRight {
+    max-width: 300px;
+    max-height: 300px;
+    width: 300px;
+    height: 300px;
+}
+
+#plateRightText {
+    margin-right: 0.25in;
+}
+
+#departmentRight {
+    display: block;
+    text-align: right;
+    margin-top: 0.22in;
+    margin-bottom: 10px;
+    font-size: 24pt;
+}
+
+#firstNameRight {
+    font-weight: 900;
+    text-align: right;
+    display: block;
+    font-size: 48pt;
+}
+
+#lastNameRight {
+    text-align: right;
+    display: block;
+    font-size: 30pt;
+    margin-bottom: 14px;
+    margin-top: -20px;
+}
+
+#startYearRight {
+    display: block;
+    text-align: right;
+    margin-bottom: 0.22in;
+    font-size: 24pt
+}
+
+#printButtonDiv {
+}
+
+@media print {
+    header, nav, footer {
+        display: none;
+    }
+    img {
+        max-width: 300px;
+    }
+    #instructionsDiv {
+        display: none;
+    }
+    #inputDiv {
+        display: none;
+    }
+
+    #previewBanner {
+        display: none;
+    }
+
+    #printButtonDiv {
+        display: none;
+    }
+
+    #plateImageLeftDiv {
+        display: inline-block;
+    }
+
+    #plateImageLeft {
+        display: inline-block;
+    }
+
+    #plateLeftText {
+        width: 49.99999%;
+    }
+
+    #plateRightText {
+        width: 49.99999%;
+    }
+
+    #imageTypeButtons {
+        display: none;
+    }
+}
+
+@media screen {
+    
+}

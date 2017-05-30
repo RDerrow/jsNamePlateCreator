@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<head>
+    <!-- *|file|*  <---- add this to the css and javascript paths when needed-->
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="index.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Name Plates Creator</title>
+    <div class="w3-container w3-orange w3-center">
+    <h1 class="mainHeader">Name Plate Creator</h1>
+    </div>	
+	<style>
+	body {font-family: "Roboto", Condensed;}
+
+#imageUploadDiv {
+    height: 288.56px;
+}
+
+#inputFormDiv {
+}
+
+#departmentSelect:hover {
+    cursor: pointer;
+}
+
+#departmentSelect {
+    border: none;
+}
+
+.w3-select option[disabled] {
+    color: graytext;
+}
+
+#imageUploadButton {
+}
+
+#previewBanner {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#circularImageButton {
+    margin-top: 10px;
+    float: left;
+    margin-left: 16px;
+}
+
+#squareImageButton {
+    margin-top: 10px;
+    float: right;
+}
+
+#plateImageLeftDiv{
+    height: 300px;
+    width: 768px;
+    margin: 0 auto;
+}
+
+#plateImageLeft {
+    max-width: 300px;
+    max-height: 300px;
+    width: 300px;
+    height: 300px;
+}
+
+#plateLeftText {
+    margin-left: 0.25in;
+}
+
+#departmentLeft {
+    margin-top: 0.22in;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 24pt;
+}
+
+#firstNameLeft {
+    font-weight: 900;
+    font-size: 48pt;
+}
+
+#lastNameLeft {
+    font-size: 30pt;
+    margin-bottom: 14px;
+    margin-top: -20px;
+    display: block;
+}
+
+#startYearLeft {
+    display: block;
+    margin-bottom: 0.22in;
+    font-size: 24pt;
+}
+
+#plateImageRightDiv {
+    height: 300px;
+    width: 768px;
+    margin: 0 auto;
+}
+
+#plateImageRight {
+    max-width: 300px;
+    max-height: 300px;
+    width: 300px;
+    height: 300px;
+}
+
+#plateRightText {
+    margin-right: 0.25in;
+}
+
+#departmentRight {
+    display: block;
+    text-align: right;
+    margin-top: 0.22in;
+    margin-bottom: 10px;
+    font-size: 24pt;
+}
+
+#firstNameRight {
+    font-weight: 900;
+    text-align: right;
+    display: block;
+    font-size: 48pt;
+}
+
+#lastNameRight {
+    text-align: right;
+    display: block;
+    font-size: 30pt;
+    margin-bottom: 14px;
+    margin-top: -20px;
+}
+
+#startYearRight {
+    display: block;
+    text-align: right;
+    margin-bottom: 0.22in;
+    font-size: 24pt
+}
+
+#printButtonDiv {
+}
+
+@media print {
+    header, nav, footer {
+        display: none;
+    }
+    img {
+        max-width: 300px;
+    }
+    #instructionsDiv {
+        display: none;
+    }
+    #inputDiv {
+        display: none;
+    }
+
+    #previewBanner {
+        display: none;
+    }
+
+    #printButtonDiv {
+        display: none;
+    }
+
+    #plateImageLeftDiv {
+        display: inline-block;
+    }
+
+    #plateImageLeft {
+        display: inline-block;
+    }
+
+    #plateLeftText {
+        width: 49.99999%;
+    }
+
+    #plateRightText {
+        width: 49.99999%;
+    }
+
+    #imageTypeButtons {
+        display: none;
+    }
+}
+
+@media screen {
+    
+}
+	</style>
+</head>
+
+<body>
+<div class="w3-container w3-center" id="instructionsDiv">
+    <p class="w3-large">Complete the fields below to create your name plate</p>
+</div>
+
+<div class="w3-container" id="inputDiv">
+    <div class="w3-half w3-container" id="inputFormDiv">
+        <form class="w3-container w3-card-4" id="inputForm">
+            <h2 class="w3-center w3-orange">Enter Information</h2>
+            <input class="w3-input" type="text" placeholder="Enter your first name" maxlength="15" onchange="updatePreview()"
+                   id="firstNameInput">
+            <br>
+            <input class="w3-input" type="text" placeholder="Enter your last name" maxlength="15" onchange="updatePreview()"
+                   id="lastNameInput">
+            <br>
+            <input class="w3-input" type="text" placeholder="Enter your start year" maxlength="4" onchange="updatePreview()"
+                   id="startYearInput">
+            <br>
+            <select class="w3-select" onchange="updatePreview()" id="departmentSelect">
+                <option value="" disabled selected>Select your department</option>
+                <option value="Business">Business</option>
+                <option value="Claims">Claims</option>
+                <option value="Customer Service">Customer Service</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Information Architecture">Information Architecture</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Office">Office</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="w3-half w3-container w3-card-4" id="imageUploadDiv">
+        <h2 class="w3-orange w3-center">Choose an image</h2>
+        <p class="w3-large">The default image will be some cute huskies if no image is chosen. All images chosen will be resized
+            to fit the constraints of 300x300(px). This may result in some distortion. <b>To get printing dimension right
+        print in landscape mode.</b></p>
+        <input type="file" id="imageUploadButton" onchange="imgUpload(this)">
+    </div>
+
+</div>
+
+<div class="w3-container" id="imageTypeButtons">
+    <a class="w3-btn w3-orange" onclick="circularImage()" id="circularImageButton">Circular Image</a>
+    <a class="w3-btn w3-orange" onclick="squareImage()" id="squareImageButton">Square Image</a>
+</div>
+
+<div class="w3-container w3-center w3-orange" id="previewBanner">
+    <h2>Preview</h2>
+</div>
+
+<div class="preview">
+    <!--Image on the left preview-->
+    <div class="w3-border w3-border-silver" id="plateImageLeftDiv">
+        <img class="w3-third" id="plateImageLeft" src="huskey-puppies.png" alt="No Image">
+        <!--Text for the name plate-->
+        <div class="w3-half w3-left" id="plateLeftText">
+            <label class="" id="departmentLeft">(Department)</label>
+            <label class="" id="firstNameLeft">(First Name)</label>
+            <br>
+            <label class="" id="lastNameLeft">(Last name)</label>
+            <label class="" id="startYearLeft">(Start year)</label>
+        </div>
+    </div>
+<br>
+    <!--Image on the right preview-->
+    <div class="w3-border w3-border-silver" id="plateImageRightDiv">
+        <img class="w3-third w3-right" id="plateImageRight" src="huskey-puppies.png" alt="No Image">
+        <div class="w3-half w3-right" id="plateRightText">
+            <label class="" id="departmentRight">(Department)</label>
+            <label class="" id="firstNameRight">(First Name)</label>
+            <label class="" id="lastNameRight">(Last name)</label>
+            <label class="" id="startYearRight">(Start year)</label>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="w3-center" id="printButtonDiv">
+    <a class="w3-orange w3-btn w3-xlarge" onclick="printPlates()">Print Plates</a>
+</div>
+<br>
+<br>
+</body>
+</html>
